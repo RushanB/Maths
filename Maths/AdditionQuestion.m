@@ -2,7 +2,7 @@
 //  AdditionQuestion.m
 //  Maths
 //
-//  Created by Rushan on 2017-05-02.
+//  Created by Rushan on 2017-05-03.
 //  Copyright © 2017 RushanBenazir. All rights reserved.
 //
 
@@ -11,19 +11,20 @@
 @implementation AdditionQuestion
 
 
--(instancetype)init{
-    if(self = [super init]){
-        _firstNumber = arc4random_uniform(100);
-        _secondNumber = arc4random_uniform(100);
-        
-        
-        _question = [NSString stringWithFormat:@"%ld + %ld = ?", _firstNumber, _secondNumber];
-        _answer = _firstNumber + _secondNumber;
-        
-        NSLog(@"What is: %@", _question);
-        
-    }
-    return self;
+- (instancetype) init{
+        self = [super init];
+        if (self) {
+            [self generateQuestion];
+        }
+        return self;
 }
+
+- (void) generateQuestion{
+    super.question = [NSString stringWithFormat:@"What is %li + %li = ?", super.rightValue, super.leftValue];
+    super.answer = super.rightValue + super.leftValue;
+
+}
+
+
 
 @end

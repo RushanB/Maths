@@ -12,6 +12,6 @@
 
 @property (nonatomic) NSString *response;
 
--(void) getInput;
++(NSString *) getInput;
 
 @end

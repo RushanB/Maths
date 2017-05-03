@@ -10,14 +10,12 @@
 
 @implementation InputHandler
 
--(void) getInput {
-    char userChar[1000];
++(NSString *) getInput {
+    char userChar[255];
     
-    fgets(userChar, 1000, stdin);
+    fgets(userChar, 255, stdin);
     
-    _response = [NSString stringWithCString:userChar encoding:NSUTF8StringEncoding];
-    
-    [_response stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return [[NSString stringWithCString:userChar encoding:NSUTF8StringEncoding]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
 
